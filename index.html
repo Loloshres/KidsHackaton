@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e85b5f">
+  <meta name="description" content="Каталог специалистов, центров и групп поддержки для людей с нарушениями речи, аутизмом и другими особенностями развития. Запись без регистрации.">
+  <title>Каталог специалистов, центров и групп поддержки</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Перейти к каталогу</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="#" id="homeLink" aria-label="На главную">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 6 8.38 8.38 0 0 1-3.8-.9L3 21l1.6-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 6-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+        </span>
+      </a>
+
+      <nav class="nav" id="mainNav" aria-label="Основная навигация">
+        <a href="#directions" class="active" data-i18n="navDirections">Направления</a>
+        <a href="#catalog" data-i18n="navCatalog">Каталог</a>
+        <a href="#how-it-works" data-i18n="navHow">Как записаться</a>
+        <a href="#catalog" id="navReviews" data-i18n="navReviews">Отзывы</a>
+        <button class="mobile-bookings-link" type="button" data-open-bookings>
+          <span data-i18n="myBookings">Мои записи</span>
+          <span id="mobileBookingsBadge" class="bookings-badge" hidden>0</span>
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" aria-label="Выбор языка">
+          <button type="button" id="langKz" aria-pressed="false">KZ</button>
+          <button type="button" id="langRu" class="selected" aria-pressed="true">RU</button>
+        </div>
+
+        <a class="header-cta" href="#catalog" data-i18n="headerCta">Подобрать помощь</a>
+
+        <div class="bookings-menu variant-c" id="bookingsMenu">
+          <button
+            class="bookings-btn"
+            id="bookingsBtn"
+            type="button"
+            aria-label="Мои записи"
+            aria-expanded="false"
+            aria-controls="bookingsPopover"
+          >
+            <span class="bookings-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="17" rx="3"/>
+                <path d="M8 2v4M16 2v4M3 10h18"/>
+              </svg>
+            </span>
+            <span class="bookings-copy" data-i18n="myBookings">Мои записи</span>
+            <span class="bookings-badge" id="bookingsBadge" hidden>0</span>
+            <span class="bookings-chevron" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </span>
+          </button>
+
+          <div class="bookings-popover" id="bookingsPopover" role="dialog" aria-labelledby="popoverTitle" hidden>
+            <div class="popover-head">
+              <h2 class="popover-title" id="popoverTitle">
+                <span class="popover-title-icon" aria-hidden="true">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="17" rx="3"/>
+                    <path d="M8 2v4M16 2v4M3 10h18"/>
+                  </svg>
+                </span>
+                <span data-i18n="popoverTitle">Мои записи</span>
+              </h2>
+              <span class="popover-count" id="popoverCount">0</span>
+            </div>
+            <div class="popover-list" id="popoverList"></div>
+            <div class="popover-foot">
+              <div>
+                <div class="popover-total-label" data-i18n="totalLabel">Итого по записям</div>
+                <div class="popover-total" id="popoverTotal">0 ₸</div>
+              </div>
+              <button class="popover-open-all" id="popoverOpenAll" type="button" data-i18n="popoverOpenAll">Открыть все записи</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mainNav">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="directions" id="directions">
+      <div class="container">
+        <div class="hero-intro">
+          <div class="hero-copy">
+            <p class="section-kicker" data-i18n="heroKicker">Помощь с опорой на особенности</p>
+            <h1 data-i18n="heroTitle">Нарушения речи, аутизм и особенности развития</h1>
+            <p class="section-subtitle" data-i18n="heroSubtitle">Подберите логопеда, дефектолога, ABA-терапевта, психолога, профильного центра или группу поддержки — в одном каталоге.</p>
+          </div>
+
+          <aside class="hero-note">
+            <p class="hero-note-title" data-i18n="heroNoteTitle">Один каталог — разные форматы</p>
+            <p class="hero-note-text" data-i18n="heroNoteText">Индивидуальные занятия, очные консультации, онлайн и групповые программы. Можно записаться без регистрации.</p>
+            <div class="hero-features">
+              <span class="hero-feature">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+                <span data-i18n="heroFeature1">Проверенные специалисты</span>
+              </span>
+              <span class="hero-feature">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+                <span data-i18n="heroFeature2">Актуальные даты</span>
+              </span>
+              <span class="hero-feature">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+                <span data-i18n="heroFeature3">Без регистрации</span>
+              </span>
+            </div>
+          </aside>
+        </div>
+
+        <div class="need-grid" id="needGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="catalog">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker" data-i18n="catalogKicker">Каталог помощи</p>
+            <h2 data-i18n="catalogTitle">Специалисты, центры и группы поддержки</h2>
+            <p class="section-subtitle" data-i18n="catalogSubtitle">Подбирайте помощь по запросу, возрасту, формату и стоимости. В каталоге есть специалисты разных направлений, комплексные центры и группы для детей, подростков, взрослых и родителей.</p>
+          </div>
+          <span class="result-count" id="resultCount"></span>
+        </div>
+
+        <form class="catalog-search" id="searchForm" role="search">
+          <span class="search-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="7"/>
+              <path d="m16 16 5 5"/>
+            </svg>
+          </span>
+          <input id="searchInput" type="search" enterkeyhint="search" autocomplete="off" placeholder="Поиск: «аутизм», «заикание», «звук Р», специалист или центр" aria-label="Поиск по каталогу">
+          <span class="search-key" aria-hidden="true">ENTER</span>
+          <button type="button" class="search-clear" id="searchClear" aria-label="Очистить поиск" hidden>×</button>
+        </form>
+
+        <div class="type-tabs" id="kindTabs" aria-label="Раздел каталога"></div>
+        <div class="sub-tabs" id="typeTabs" aria-label="Профиль специалиста" hidden></div>
+
+        <div class="catalog-layout">
+          <aside class="filters" id="filtersPanel" aria-label="Фильтры каталога">
+            <div class="filters-title">
+              <span data-i18n="filtersTitle">Фильтры</span>
+              <span class="filter-count" id="filterCount" hidden>0</span>
+            </div>
+
+            <button class="filters-toggle" id="filtersToggle" type="button" aria-expanded="false" aria-controls="filtersFields">
+              <span data-i18n="filterShow">Показать фильтры</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+
+            <div class="filters-fields" id="filtersFields">
+              <div class="filter-group wide">
+                <span class="title" id="ageTitle" data-i18n="ageLabel">Для кого</span>
+                <div class="seg" id="ageSeg" role="group" aria-labelledby="ageTitle"></div>
+              </div>
+
+              <div class="filter-group wide">
+                <label class="title" for="needFilter" data-i18n="needLabel">С чем нужна помощь</label>
+                <select id="needFilter"></select>
+              </div>
+
+              <div class="filter-group">
+                <label class="title" for="formatFilter" data-i18n="formatLabel">Формат</label>
+                <select id="formatFilter">
+                  <option value="all">Любой формат</option>
+                  <option value="online">Онлайн</option>
+                  <option value="offline">Очно</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label class="title" for="priceFilter" data-i18n="priceLabel">Стоимость</label>
+                <select id="priceFilter">
+                  <option value="all">Любая стоимость</option>
+                  <option value="4000">До 4 000 ₸</option>
+                  <option value="6000">До 6 000 ₸</option>
+                  <option value="8000">До 8 000 ₸</option>
+                </select>
+              </div>
+
+              <div class="filter-group wide">
+                <label class="check-row">
+                  <input type="checkbox" id="availableFilter">
+                  <span data-i18n="availableLabel">Есть запись сегодня или завтра</span>
+                </label>
+              </div>
+            </div>
+
+            <button class="reset-btn" id="resetFilters" type="button" data-i18n="resetButton">Сбросить фильтры</button>
+          </aside>
+
+          <div>
+            <div class="list-toolbar">
+              <p id="toolbarText">Подходящие варианты</p>
+              <select id="sortSelect" aria-label="Сортировка">
+                <option value="recommended">По рекомендациям</option>
+                <option value="priceAsc">Сначала дешевле</option>
+                <option value="rating">По рейтингу</option>
+              </select>
+            </div>
+
+            <div class="doctor-list" id="doctorList" aria-live="polite"></div>
+
+            <div class="more-wrap">
+              <button type="button" class="outline-btn" id="showMore" data-i18n="showMore">Показать ещё</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps-section" id="how-it-works">
+      <div class="container">
+        <p class="section-kicker" data-i18n="stepsKicker">Просто и быстро</p>
+        <h2 data-i18n="stepsTitle">Как записаться</h2>
+
+        <div class="steps">
+          <article class="step" data-step="01">
+            <div class="step-number">01</div>
+            <h3 data-i18n="step1Title">Выберите направление</h3>
+            <p data-i18n="step1Copy">Укажите, с чем нужна помощь, или воспользуйтесь поиском и фильтрами, чтобы подобрать подходящего специалиста, центр или группу.</p>
+          </article>
+
+          <article class="step" data-step="02">
+            <div class="step-number">02</div>
+            <h3 data-i18n="step2Title">Выберите время</h3>
+            <p data-i18n="step2Copy">Посмотрите ближайшие свободные даты, формат работы и стоимость прямо в карточке.</p>
+          </article>
+
+          <article class="step" data-step="03">
+            <div class="step-number">03</div>
+            <h3 data-i18n="step3Title">Оставьте контакты</h3>
+            <p data-i18n="step3Copy">Подтвердите заявку без регистрации. Запись появится в меню «Мои записи» и сохранится на этом устройстве.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="logo" href="#" aria-label="На главную">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 6 8.38 8.38 0 0 1-3.8-.9L3 21l1.6-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 6-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+        </span>
+      </a>
+
+      <span data-i18n="footerText">Помощь при нарушениях речи, аутизме и особенностях развития. © 2026</span>
+
+      <div class="footer-links">
+        <a href="#directions" data-i18n="navDirections">Направления</a>
+        <a href="#catalog" data-i18n="navCatalog">Каталог</a>
+        <a href="#how-it-works" data-i18n="navHow">Как записаться</a>
+        <button type="button" class="footer-link" id="footerBookings" data-i18n="myBookings">Мои записи</button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+    <div class="modal">
+      <button class="modal-close" type="button" data-close aria-label="Закрыть">×</button>
+      <div id="bookingContent"></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="reviewsModal" role="dialog" aria-modal="true" aria-labelledby="reviewsTitle">
+    <div class="modal">
+      <button class="modal-close" type="button" data-close aria-label="Закрыть">×</button>
+      <h2 id="reviewsTitle">Отзывы</h2>
+      <p class="modal-description" id="reviewsDescription"></p>
+      <div id="reviewsContent"></div>
+    </div>
+  </div>
+
+  <div class="drawer-backdrop" id="bookingsDrawer">
+    <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="bookingsTitle">
+      <div class="drawer-head">
+        <h2 class="drawer-title" id="bookingsTitle">
+          <span class="drawer-title-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="17" rx="3"/>
+              <path d="M8 2v4M16 2v4M3 10h18"/>
+              <path d="m9 15 2 2 4-4"/>
+            </svg>
+          </span>
+          <span data-i18n="myBookings">Мои записи</span>
+          <span class="drawer-count" id="drawerCount">0</span>
+        </h2>
+        <button type="button" class="drawer-close" id="drawerClose" aria-label="Закрыть">×</button>
+      </div>
+      <div class="drawer-body" id="bookingsList" aria-live="polite"></div>
+      <div class="drawer-foot" id="drawerFoot">
+        <div>
+          <div class="side-label" data-i18n="totalLabel">Итого по записям</div>
+          <div class="drawer-total" id="bookingsTotal">0 ₸</div>
+        </div>
+        <button class="btn" type="button" id="drawerCta" data-i18n="drawerCta">Записаться ещё</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
